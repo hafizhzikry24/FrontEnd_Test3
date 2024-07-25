@@ -14,7 +14,7 @@
             <input type="text" v-model="name" required />
           </div>
           <div>
-            <label for="categoryId">Category ID:</label>
+            <label for="categoryId">Parent ID:</label>
             <input type="number" v-model="categoryId" required />
           </div>
           <button type="submit">Save</button>
