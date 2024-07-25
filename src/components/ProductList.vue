@@ -10,6 +10,7 @@
           <th>Name</th>
           <th>Price</th>
           <th>type</th>
+          <th>category ID</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@
           <td>{{ product.name }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.__typename }}</td>
+          <td>{{ product.category_id }}</td>
           <td>
             <button class="edit" @click="openEditProductModal(product)">Edit</button>
             <button class="secondary" @click="deleteProduct(product.id)">Delete</button>

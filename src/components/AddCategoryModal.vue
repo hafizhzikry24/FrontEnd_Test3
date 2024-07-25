@@ -6,12 +6,12 @@
         <h2>Add Category</h2>
         <form @submit.prevent="submitAddCategory">
           <div>
-            <label for="name">Name:</label>
-            <input type="text" v-model="name" required />
+            <label for="id">ID:</label>
+            <input type="text" v-model="id" required />
           </div>
           <div>
-            <label for="price">Price:</label>
-            <input type="number" v-model="price" required />
+            <label for="name">Name:</label>
+            <input type="text" v-model="name" required />
           </div>
           <div>
             <label for="categoryId">Category ID:</label>

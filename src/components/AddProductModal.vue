@@ -6,6 +6,10 @@
         <h2>Add Product</h2>
         <form @submit.prevent="submitAddProduct">
           <div>
+            <label for="id">ID:</label>
+            <input type="text" v-model="product.id" required />
+          </div>
+          <div>
             <label for="name">Name:</label>
             <input type="text" v-model="product.name" required />
           </div>

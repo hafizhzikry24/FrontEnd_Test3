@@ -9,6 +9,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Type</th>
+          <th>Parent ID</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -17,6 +18,7 @@
           <td>{{ category.id }}</td>
           <td>{{ category.name }}</td>
           <td>{{ category.__typename }}</td>
+          <td>{{ category.parent_id }}</td>
           
           <td>
             <button class="edit" @click="openEditCategoryModal(category)">Edit</button>

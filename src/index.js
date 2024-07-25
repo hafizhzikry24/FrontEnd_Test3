@@ -26,8 +26,8 @@ const FETCH_CATEGORIES = gql`
 `;
 
  const ADD_PRODUCT = gql`
-  mutation AddProduct($name: String!, $price: Float!, $categoryId: Int!) {
-    insert_products(objects: { name: $name, price: $price, category_id: $categoryId }) {
+  mutation AddProduct($id: Int! $name: String!, $price: Float!, $categoryId: Int!) {
+    insert_products(objects: { id: $id, name: $name, price: $price, category_id: $categoryId }) {
       returning {
         id
         name
@@ -40,7 +40,7 @@ const FETCH_CATEGORIES = gql`
 
 const EDIT_PRODUCT = gql`
   mutation EditProduct($id: Int!, $name: String!, $price: Float!, $categoryId: Int!) {
-    update_products_by_pk(pk_columns: { id: $id }, _set: { name: $name, price: $price, category_id: $categoryId }) {
+    edit_products_by_pk(pk_columns: { id: $id }, _set: { name: $name, price: $price, category_id: $categoryId }) {
       id
       name
       price
@@ -57,9 +57,9 @@ export const DELETE_PRODUCT = gql`
   }
 `;
 
-  const ADD_CATEGORY = gql`
-  mutation AddCategory($name: String!, $parentId: Int) {
-    insert_categories(objects: { name: $name, parent_id: $parentId }) {
+  export const ADD_CATEGORY = gql`
+  mutation AddCategory($id: Int!, $name: String!, $parentId: Int) {
+    insert_categories(objects: { id: $id, name: $name, parent_id: $parentId }) {
       returning {
         id
         name
@@ -70,10 +70,11 @@ export const DELETE_PRODUCT = gql`
 `;
 
 const EDIT_CATEGORY = gql`
-  mutation EditCategory($id: Int!, $name: String!) {
-    update_categories_by_pk(pk_columns: { id: $id }, _set: { name: $name }) {
+  mutation EditCategory($id: Int!, $name: String!  $parentId: Int) {
+    update_categories_by_pk(pk_columns: { id: $id }, _set: { name: $name, parent_id: $parentId  }) {
       id
       name
+      parent_id
     }
   }
 `;

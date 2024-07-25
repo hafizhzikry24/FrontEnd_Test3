@@ -6,16 +6,16 @@
         <h2>Edit Category</h2>
         <form @submit.prevent="submitEditCategory">
           <div>
+            <label for="id">ID:</label>
+            <input type="text" v-model="editedCategory.id" required />
+          </div>
+          <div>
             <label for="name">Name:</label>
             <input type="text" v-model="editedCategory.name" required />
           </div>
           <div>
-            <label for="price">Price:</label>
-            <input type="number" v-model="editedCategory.price" required />
-          </div>
-          <div>
-            <label for="id">ID:</label>
-            <input type="number" v-model="editedCategory.id" required />
+            <label for="parent_id">Parent ID:</label>
+            <input type="number" v-model="editedCategory.parent_id" required />
           </div>
           <button type="submit">Save</button>
         </form>
@@ -41,7 +41,7 @@ export default {
     const editedCategory = ref({ ...props.category });
 
     const submitEditCategory = async () => {
-      await store.updateCategory({ id: editedCategory.value.id, name: editedCategory.value.name });
+      await store.editCategory({ id: editedCategory.value.id, name: editedCategory.value.name });
       emit('close');
     };
 

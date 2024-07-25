@@ -6,6 +6,10 @@
         <h2>Edit Product</h2>
         <form @submit.prevent="submitEditProduct">
           <div>
+            <label for="id">ID:</label>
+            <input type="text" v-model="editedProduct.id" required />
+          </div>
+          <div>
             <label for="name">Name:</label>
             <input type="text" v-model="editedProduct.name" required />
           </div>
